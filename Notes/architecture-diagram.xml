@@ -1,0 +1,92 @@
+<mxfile host="Electron" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/29.3.6 Chrome/140.0.7339.249 Electron/38.8.0 Safari/537.36" version="29.3.6">
+  <diagram name="Lab Network" id="lab-network-diagram">
+    <mxGraphModel dx="1426" dy="842" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1600" pageHeight="1200" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="internet" parent="1" style="shape=cloud;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" value="Internet" vertex="1">
+          <mxGeometry height="60" width="120" x="600" y="40" as="geometry" />
+        </mxCell>
+        <mxCell id="home-router" parent="1" style="shape=rectangle;whiteSpace=wrap;html=1;rounded=1;fillColor=#ffffff;strokeColor=#000000;" value="Home Router (ISP)" vertex="1">
+          <mxGeometry height="60" width="160" x="600" y="140" as="geometry" />
+        </mxCell>
+        <mxCell id="pfsense" parent="1" style="shape=rectangle;whiteSpace=wrap;html=1;rounded=1;fillColor=#ffe6cc;strokeColor=#d79b00;" value="pfSense Firewall&#xa;lab-fw-7070" vertex="1">
+          <mxGeometry height="70" width="180" x="600" y="250" as="geometry" />
+        </mxCell>
+        <mxCell id="vlan10" parent="1" style="shape=swimlane;childLayout=stackLayout;horizontal=1;startSize=26;rounded=1;fillColor=#e1f5fe;strokeColor=#0288d1;container=0;" value="VLAN 10 - Management&#xa;10.10.0.0/24" vertex="1">
+          <mxGeometry height="200" width="260" x="120" y="380" as="geometry" />
+        </mxCell>
+        <mxCell id="vlan20" parent="1" style="shape=swimlane;childLayout=stackLayout;horizontal=1;startSize=26;rounded=1;fillColor=#e8f5e9;strokeColor=#2e7d32;container=0;" value="VLAN 20 - Internal&#xa;10.20.0.0/24" vertex="1">
+          <mxGeometry height="330" width="260" x="440" y="380" as="geometry" />
+        </mxCell>
+        <mxCell id="vlan30" parent="1" style="shape=swimlane;childLayout=stackLayout;horizontal=1;startSize=26;rounded=1;fillColor=#ffebee;strokeColor=#c62828;container=0;" value="VLAN 30 - DMZ&#xa;10.30.0.0/24" vertex="1">
+          <mxGeometry height="180" width="260" x="760" y="380" as="geometry" />
+        </mxCell>
+        <mxCell id="web01" parent="vlan30" style="shape=rectangle;whiteSpace=wrap;html=1;rounded=1;fillColor=#ffebee;strokeColor=#c62828;" value="lab-proliant-web-01&#xa;Web / DVWA&#xa;10.30.0.10" vertex="1">
+          <mxGeometry height="154" width="230" y="26" as="geometry" />
+        </mxCell>
+        <mxCell id="vlan40" parent="1" style="shape=swimlane;childLayout=stackLayout;horizontal=1;startSize=26;rounded=1;fillColor=#f3e5f5;strokeColor=#6a1b9a;container=0;" value="VLAN 40 - Clients&#xa;10.40.0.0/24" vertex="1">
+          <mxGeometry height="220" width="260" x="1080" y="380" as="geometry" />
+        </mxCell>
+        <mxCell id="e-internet-router" edge="1" parent="1" source="internet" style="endArrow=block;strokeColor=#000000;" target="home-router">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e-router-pfsense" edge="1" parent="1" source="home-router" style="endArrow=block;strokeColor=#000000;" target="pfsense">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e-pfsense-vlan10" edge="1" parent="1" source="pfsense" style="endArrow=block;strokeColor=#0288d1;" target="vlan10">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="250" y="340" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e-pfsense-vlan20" edge="1" parent="1" source="pfsense" style="endArrow=block;strokeColor=#2e7d32;" target="vlan20">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="570" y="350" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e-pfsense-vlan30" edge="1" parent="1" source="pfsense" style="endArrow=block;strokeColor=#c62828;" target="vlan30">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="880" y="340" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e-pfsense-vlan40" edge="1" parent="1" source="pfsense" style="endArrow=block;strokeColor=#6a1b9a;" target="vlan40">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1210" y="310" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="odroid" parent="1" style="shape=rectangle;whiteSpace=wrap;html=1;rounded=1;fillColor=#fffde7;strokeColor=#f9a825;" value="lab-infra-odroid&#xa;Pi-hole / NTP / Honeypot&#xa;10.20.0.5" vertex="1">
+          <mxGeometry height="70" width="230" x="450" y="410" as="geometry" />
+        </mxCell>
+        <mxCell id="dc01" parent="1" style="shape=rectangle;whiteSpace=wrap;html=1;rounded=1;fillColor=#ffffff;strokeColor=#424242;" value="lab-proliant-dc-01&#xa;Domain Controller&#xa;10.20.0.10" vertex="1">
+          <mxGeometry height="60" width="230" x="450" y="490" as="geometry" />
+        </mxCell>
+        <mxCell id="linux01" parent="1" style="shape=rectangle;whiteSpace=wrap;html=1;rounded=1;fillColor=#ffffff;strokeColor=#424242;" value="lab-proliant-linux-01&#xa;Linux Server&#xa;10.20.0.20" vertex="1">
+          <mxGeometry height="60" width="230" x="450" y="560" as="geometry" />
+        </mxCell>
+        <mxCell id="siem01" parent="1" style="shape=rectangle;whiteSpace=wrap;html=1;rounded=1;fillColor=#fff3e0;strokeColor=#ef6c00;" value="lab-desktop-siem-01&#xa;SIEM&#xa;10.20.0.50" vertex="1">
+          <mxGeometry height="60" width="230" x="450" y="630" as="geometry" />
+        </mxCell>
+        <mxCell id="win01" parent="1" style="shape=rectangle;whiteSpace=wrap;html=1;rounded=1;fillColor=#e8f5e9;strokeColor=#2e7d32;" value="lab-desktop-win-01&#xa;Windows Client&#xa;10.40.0.10" vertex="1">
+          <mxGeometry height="60" width="230" x="1090" y="410" as="geometry" />
+        </mxCell>
+        <mxCell id="kali01" parent="1" style="shape=rectangle;whiteSpace=wrap;html=1;rounded=1;fillColor=#ede7f6;strokeColor=#5e35b1;" value="lab-desktop-kali-01&#xa;Kali&#xa;10.40.0.20" vertex="1">
+          <mxGeometry height="60" width="230" x="1090" y="490" as="geometry" />
+        </mxCell>
+        <mxCell id="pve-proliant" parent="1" style="shape=rectangle;whiteSpace=wrap;html=1;rounded=1;fillColor=#f5f5f5;strokeColor=#616161;" value="pve-proliant&#xa;lab-hypervisor-proliant&#xa;10.10.0.10" vertex="1">
+          <mxGeometry height="60" width="220" x="130" y="410" as="geometry" />
+        </mxCell>
+        <mxCell id="pve-desktop" parent="1" style="shape=rectangle;whiteSpace=wrap;html=1;rounded=1;fillColor=#f5f5f5;strokeColor=#616161;" value="pve-desktop&#xa;lab-hypervisor-desktop&#xa;10.10.0.20" vertex="1">
+          <mxGeometry height="60" width="220" x="130" y="480" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
