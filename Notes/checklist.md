@@ -14,13 +14,14 @@
 ## 2. Physical Network Layout
 - [ ] Connect pfSense (OptiPlex 7070) ethernet (trunk) → home router.
     - [ ] Port number
-- [ ] Connect router (trunk) → lab switch.
+- [x] Connect router (trunk) → lab switch.
+    - [1] Port number - switch
+    - [ ] Port number - router
+- [x] Connect Desktop → lab switch.
     - [ ] Port number
-- [ ] Connect Desktop → lab switch.
+- [x] Connect ProLiant → lab switch.
     - [ ] Port number
-- [ ] Connect ProLiant → lab switch.
-    - [ ] Port number
-- [ ] Connect ODROID → lab switch.
+- [x] Connect ODROID → lab switch.
     - [ ] Port number
 - [ ] Label cables and switch ports.
 
@@ -45,11 +46,9 @@
 ---
 
 ## 4. Install Hypervisors
-- [ ] Install Proxmox on ProLiant:
-  - [ ] Hostname: `pve-proliant`
-  - [ ] IP: `10.10.0.10`
-- [ ] Install Proxmox on Desktop:
-  - [ ] Hostname: `pve-desktop`
+- [x] Install Unraid on ProLiant
+- [x] Install VMWare Workstation on Desktop:
+  - [ ] Hostname: `vmw-desktop`
   - [ ] IP: `10.10.0.20`
 - [ ] Configure switch ports as VLAN trunks for hypervisors.
 
@@ -158,7 +157,7 @@
 - [ ] Tighten firewall rules (least privilege).
 - [ ] Disable unnecessary services.
 - [ ] Create snapshots of stable VM states.
-- [ ] Configure Proxmox backups.
+- [ ] Configure hypervisor backups.
 
 ---
 

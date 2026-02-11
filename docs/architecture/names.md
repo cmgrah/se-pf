@@ -21,11 +21,11 @@ Hardware Hostnames
 | Dell Precision 3530        | Mobile analyst workstation                        | lab-ws-3530              |
 | ODROID H2                  | DNS, NTP, honeypot, auxiliary services            | lab-infra-odroid         |
 
-Proxmox Node Names
+Hypervisor Node Names
 | Node     | Hostname        |
 |----------|------------------|
-| Desktop  | pve-desktop      |
-| ProLiant | pve-proliant     |
+| Desktop  | vmw-desktop      |
+| ProLiant | vmw-proliant     |
 
 VM Naming Scheme (including examples)
 | VM Role              | Example Name             | Description                          |
