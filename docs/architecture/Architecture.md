@@ -26,8 +26,9 @@
         │
  ┌──────────────────────────────┐
  │ ProLiant ML310e (Unraid)     │
- │ lab-hypervisor-proliant      │
- │ 10.10.0.10                    │
+ │ lab-hypervisor-proliant      |
+ | 74:46:A0:FE:C8:B8            │
+ │ 10.10.0.10                   │
  │                              │
  │  • lab-proliant-dc-01        │
  │    Domain Controller         │
