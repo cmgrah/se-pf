@@ -10,7 +10,7 @@ Where:
 Network Device
 | Device              | IP            | VLAN       | 
 |---------------------|---------------|------------|
-| GS108Ev3.L2.switch  | 10.10.0.2     | Management |
+| GS108Ev3.switch  | 10.10.0.2     | Management |
 
 Hardware Hostnames
 | Device                     | Purpose                                           | Hostname                 |
